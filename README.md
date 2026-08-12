@@ -1,6 +1,6 @@
-# 🤖 Robotic Hand — ESP32 + MQTT
+# 🤖 Robotic Hand: ESP32 + MQTT
 
-A wirelessly controlled 4-servo robotic hand built using two ESP32 boards communicating over the MQTT protocol. One ESP32 publishes servo angle commands, and a second ESP32 subscribes to those commands and actuates the servos in real time.
+A wirelessly controlled 5-servo robotic hand built using two ESP32 boards communicating over the MQTT protocol. One ESP32 publishes servo angle commands, and a second ESP32 subscribes to those commands and actuates the servos in real time.
 
 [![Platform](https://img.shields.io/badge/Platform-ESP32-blue)](https://www.espressif.com/en/products/socs/esp32)
 [![Protocol](https://img.shields.io/badge/Protocol-MQTT-orange)](https://mqtt.org/)
@@ -26,9 +26,9 @@ A wirelessly controlled 4-servo robotic hand built using two ESP32 boards commun
 
 ## 🔍 Overview
 
-This project demonstrates a publisher–subscriber architecture for controlling a robotic hand wirelessly. Instead of wiring a controller directly to the servos, one ESP32 acts as a **publisher** — sending servo angle commands over WiFi using MQTT — while a second ESP32 acts as a **subscriber**, receiving those commands and driving four servo motors that form the hand's fingers/joints.
+This project demonstrates a publisher–subscriber architecture for controlling a robotic hand wirelessly. Instead of a controller directly to the servos, one ESP32 acts as a **publisher** — sending servo angle commands over WiFi using MQTT — while a second ESP32 acts as a **subscriber**, receiving those commands and driving four servo motors that form the hand's fingers/joints.
 
-This decoupled design is a foundational step toward more advanced control schemes, such as glove- or IMU-based gesture control and mobile app integration (see [Future Improvements](#-future-improvements)).
+This decoupled design is a foundational step toward more advanced control schemes, such as glove or IMU-based gesture control and mobile app integration (see [Future Improvements](#-future-improvements)).
 
 ## ✨ Features
 
@@ -53,7 +53,7 @@ This decoupled design is a foundational step toward more advanced control scheme
                                                  └─────────────────┘
 ```
 
-Both boards connect to the same MQTT broker over WiFi. The publisher sends angle values (0–180) on four dedicated topics; the subscriber listens on those topics and moves the corresponding servo.
+Both boards connect to the same MQTT broker over different WiFi hosts. The publisher sends angle values (0–180) on four dedicated topics; the subscriber listens on those topics and moves the corresponding servo.
 
 ## 🔧 Hardware Requirements
 
